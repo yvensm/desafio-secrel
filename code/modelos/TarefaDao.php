@@ -17,7 +17,8 @@ class TarefaDao {
      * @return Tarefa
      */
     public function find($id) {
-        $query = "SELECT id as chave, id, nome descricao, prazo, prioridade, concluida "
+        // Query incorreta
+        $query = "SELECT id as chave, id, nome, descricao, prazo, prioridade, concluida "
                 . "FROM tarefas where id = $id "; 
         $statement = DBConnection::createStatement($query);
         $statement->bindValue(':id', $id);

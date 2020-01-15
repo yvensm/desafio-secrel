@@ -17,7 +17,7 @@ class DBConnection {
      * @return \PDO
      */
     public static function createPDO() {
-        return new PDO("mysql:host=localhost;dbname=projetotarefas;charset=utf8", "root", "");
+        return new PDO("mysql:host=localhost;dbname=projetotarefas;charset=utf8", "root", "root");
     }
     /**
      * @return \PDO

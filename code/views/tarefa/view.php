@@ -35,12 +35,13 @@
             </tr>
             <tr>
                 <th>Descrição</th>
-                <td> !)(*&)(*) </td>
+                <td><?=$tarefa->descricao ?></td>
             </tr>
         </table>
         <div class="pull-right">
-            <a href="./TarefaLista.php">Voltar</a> | 
-            <a href="./TarefaUpdate.php?id=<?= $tarefa->id ?>">Editar</a>
+            <!-- nome do arquivo estava incorreto -->
+            <a href="./tarefaLista.php">Voltar</a> | 
+            <a href="./tarefaUpdate.php?id=<?= $tarefa->id ?>">Editar</a>
         </div>
     </div>
 </div>
