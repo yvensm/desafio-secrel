@@ -30,7 +30,7 @@ class TarefaDao {
 //    
     public function findAll() {
         $query = "SELECT id as chave, id, nome, descricao, prazo, prioridade, concluida "
-                . "FROM tarefas LIMIT 5";
+                . "FROM tarefas";
         $statement = DBConnection::createStatement($query);
         $statement->execute();
         $tarefas = $statement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_UNIQUE, 'Tarefa');

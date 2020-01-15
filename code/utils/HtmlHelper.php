@@ -55,7 +55,7 @@ class HtmlHelper {
         $html = "";
         $html .= self::tag('thead', $head);
         $html .= self::tag('tbody', $body);
-        return self::tag('table', $html, "id='$tableId' class='table' ");
+        return self::tag('table', $html, "id='$tableId' class='table table-striped' ");
     }
 
 }
