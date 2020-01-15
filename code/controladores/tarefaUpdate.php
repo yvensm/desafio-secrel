@@ -4,6 +4,7 @@ if (!isset($_GET['id'])) {
     die('Parametro id obrigatorio. Exemplo: ?id=5');
 }
 require '../autoload.php';
+
 $dao = new TarefaDao();
 $id = $_GET['id'];
 $tarefa = $dao->find($id);

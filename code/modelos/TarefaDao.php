@@ -53,6 +53,14 @@ class TarefaDao {
         return NULL;
     }
 
-   
+    public function delete($id){
+        $query = "DELETE FROM tarefas WHERE id = $id";
+        $pdo = DBConnection::createPDO();
+        $statement=$pdo->prepare($query);
+        if($statement->execute()){
+            return TRUE;
+        }
+        return implode(',', $statement->errorInfo());
+    }
 
 }

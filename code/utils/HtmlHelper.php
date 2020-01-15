@@ -46,8 +46,12 @@ class HtmlHelper {
             $editIcon = self::tag('i','',"class='glyphicon glyphicon-edit'");
             $viewUrl = "{$controlador}View.php?id=".   $value->$fieldId;
             $viewIcon = self::tag('i','',"class='glyphicon glyphicon-eye-open'");
+            $deleteUrl="{$controlador}Delete.php?id=".   $value->$fieldId;
+            $deleteIcon=self::tag('i','',"class='glyphicon glyphicon-trash'");
             
-            $buttons = " <a  href='$viewUrl'>$viewIcon</a> <a href='$editUrl'>$editIcon</a>";
+
+
+            $buttons = " <a  href='$viewUrl'>$viewIcon</a> <a href='$editUrl'>$editIcon</a> <a href='$deleteUrl'>$deleteIcon</>";
             $row .= self::tag('td', $buttons, "class='text-center'");
             $body .= self::tag('tr', $row);
         }
