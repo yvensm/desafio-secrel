@@ -23,9 +23,10 @@ $dao = new TarefaDao();
 
 if($dao->update($tarefa)){
     echo "<script>alert('Tarefa editada com sucesso');</script>";
-    echo "<script>window.location.replace('tarefaUpdateForm.php?id=$tarefa->id')</script>";
+    echo "<script>window.location.replace('tarefaLista.php')</script>";
 }else{
-    echo "<h1>Deu ruim</h1>";
+    echo "<script>alert('A tarefa não foi editada com sucesso');</script>";
+    echo "<script>window.location.replace('tarefaUpdateForm.php?id=$tarefa->id')</script>";
 }
 
 
