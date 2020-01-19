@@ -52,7 +52,17 @@ class TarefaDao {
         $tarefa->addErro(implode(',', $statement->errorInfo()));
         return NULL;
     }
-
+    public function update($tarefa){
+        $query = "UPDATE tarefas SET nome='$tarefa->nome', descricao='$tarefa->descricao', prioridade=$tarefa->prioridade, concluida=$tarefa->concluida WHERE id=$tarefa->id";
+        $pdo = DBConnection::createPDO();
+        $statement = $pdo->prepare($query);
+        if($statement->execute()){
+            return TRUE;
+        }else{
+            echo "<h1>".implode(',', $statement->errorInfo())."<h1>";
+            return FALSE;
+        }
+    }
     public function delete($id){
         $query = "DELETE FROM tarefas WHERE id = $id";
         $pdo = DBConnection::createPDO();

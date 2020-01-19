@@ -42,7 +42,7 @@ class HtmlHelper {
                 $value2 = empty($value2) ? '' : $value2;
                 $row .= self::tag('td', htmlspecialchars($value2));
             }
-            $editUrl = "{$controlador}Update.php?id=".   $value->$fieldId;
+            $editUrl = "{$controlador}UpdateForm.php?id=".   $value->$fieldId;
             $editIcon = self::tag('i','',"class='glyphicon glyphicon-edit'");
             $viewUrl = "{$controlador}View.php?id=".   $value->$fieldId;
             $viewIcon = self::tag('i','',"class='glyphicon glyphicon-eye-open'");

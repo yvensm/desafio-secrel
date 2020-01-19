@@ -11,6 +11,8 @@
         <link rel="stylesheet" type="text/css" href="../../media/DataTables/datatables.min.css"/>
         <link rel="stylesheet" type="text/css" href="../../media/DataTables/DataTables-1.10.16/css/dataTables.bootstrap.min.css"/>
         <script type="text/javascript" src="../../media/DataTables/datatables.min.js"></script>
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-inverse">

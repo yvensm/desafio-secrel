@@ -1,32 +1,43 @@
 <?php
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
-if (!isset($_GET['id'])) {
-    die('Parametro id obrigatorio. Exemplo: ?id=5');
-}
+// Report all errors except E_NOTICE
+error_reporting(E_ALL & ~E_NOTICE);
+
 require '../autoload.php';
 
+if(!isset($_POST['nome']) ||!isset($_POST['descricao']) || !isset($_POST['prioridade'])){
+    echo "<script>alert('Algum campo não foi informado')</script>";
+}
+
+$id = $_POST['id'];
+$nome = $_POST['nome'];
+$descricao = $_POST['descricao'];
+$prioridade = $_POST['prioridade'];
+$concluida = $_POST['concluida'];
+
+$tarefa = createTarefa($id,$nome,$descricao, $prioridade, $concluida);
+$tarefa->id = $id;
 $dao = new TarefaDao();
-$id = $_GET['id'];
-$tarefa = $dao->find($id);
 
-echo HtmlHelper::tag('h1', 'Antes da Atualização');
-var_dump($tarefa);
 
-$tarefa->descricao = "Atualizado em " . date('d/M/Y H:i:s');
-
-$rows = $dao->update($tarefa);
-if ($rows > 0) {
-    echo "linhas afetadas: $rows";
-    echo HtmlHelper::tag('h1', 'Após Atualização');
-    $tarefa = $dao->find($id);
-    var_dump($tarefa);
-} else {
-    echo HtmlHelper::tag('h2', 'Erros');
-    var_dump($tarefa->erros);
+if($dao->update($tarefa)){
+    echo "<script>alert('Tarefa editada com sucesso');</script>";
+    echo "<script>window.location.replace('tarefaUpdateForm.php?id=$tarefa->id')</script>";
+}else{
+    echo "<h1>Deu ruim</h1>";
 }
 
 
 
 
-
-
+function createTarefa($id,$nome,$descricao, $prioridade, $concluida) {
+    $tarefa = new Tarefa();
+    $tarefa->$id = $id;
+    $tarefa->concluida = $concluida ? 1 : 0;
+    $tarefa->nome = $nome;
+    $tarefa->descricao = $descricao;
+    $tarefa->prazo = NULL; // Não trabalharemos com prazo agora
+    $tarefa->prioridade = $prioridade;
+    return $tarefa;
+}
